@@ -5,6 +5,8 @@ A webapp to encourage school recycling.
 
 [Summit Recycled App](http://www.recycled-app.appspot.com)
 
+Special thanks to Summit student Alexander Nguyen and [The City of San Jose](http://www.sanjoseca.gov/index.aspx?NID=1525) for bringing recycling to our campus, free of cost.
+
 ##How it Works##
 
 QR codes encoded with the URL endpoint of `/point?special=somekey` are attached to recycling bins. Students scan the QR codes with their smartphones and are are redirected to the special endpoint. Currently, the only way to verify that the student came from the QR code is by verifying a URL variable that's an awkward MD5 hash. This variable only comes from the link encoded by the QR. After verification and authentication, the program updates the property `Player.points` and `Player.updateTime` in the Google Datastore. Every time a user tries to scan a code, the program checks if an hour has passed between scans by comparing the current time and the `Player.updateTime` property, before proceeding to update the Datastore. Additionally, there are `cron` jobs that wipe the Datastore every month to restart the game.
