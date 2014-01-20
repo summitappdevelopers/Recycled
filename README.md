@@ -13,19 +13,21 @@ QR codes encoded with the URL endpoint of `/point?special=somekey` are attached 
 
 Recycled was built using the `webapp2` Python framework documented by Google [here](https://developers.google.com/appengine/docs/python/gettingstartedpython27/introduction). The Views are created with [Jinja2](http://jinja.pocoo.org/docs/).
 
-1. Download the [Google App Engine SDK for Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python), which comes with a handy deployment and debug tool, as well as all the necessary libraries.
+* Download the [Google App Engine SDK for Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python), which comes with a handy deployment and debug tool, as well as all the necessary libraries.
 
-2. Register the application for your own school by creating an [AppEngine](https://appengine.google.com/) account. Make sure you pick a unique name.
+* Register the application for your own school by creating an [AppEngine](https://appengine.google.com/) account. Make sure you pick a unique name.
 
-3. Edit the `app.yaml` file to reflect your app's name by changing the `application:` field.
+* Edit the `app.yaml` file to reflect your app's name by changing the `application:` field.
 
-    application: recycled-app
-    version: 1
-    runtime: python27
-    api_version: 1
-    threadsafe: true
+```YAML
+application: recycled-app
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+```
     
-4. Deploy and make Recycled your own!
+* Deploy and make Recycled your own!
 
 
 ##MIT License##
