@@ -16,10 +16,6 @@ class Player(db.Model):
 	points = db.IntegerProperty()
 	updateTime = db.DateTimeProperty()
 
-class PlayerAddress(db.Model):
-	ip = db.StringProperty()
-
-
 class LeadersPage(webapp2.RequestHandler):
 
 	def get(self):
@@ -29,8 +25,6 @@ class LeadersPage(webapp2.RequestHandler):
 		}
 		leaderboard_template = JINJA_ENVIRONMENT.get_template('templates/leaderboard.html')
 		self.response.write(leaderboard_template.render(leaderboard_template_values))		
-
-
 
 class AddPoint(webapp2.RequestHandler):
 
