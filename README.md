@@ -11,7 +11,7 @@ QR codes encoded with the URL endpoint of `/point?special=somekey` are attached 
 
 ##Use Recycled in Your Own School##
 
-Recycled was built using the `webapp2` Python framework documented by Google [here](https://developers.google.com/appengine/docs/python/gettingstartedpython27/introduction). The views are created with [Jinja2](http://jinja.pocoo.org/docs/) and styled with [Bootstrap3](http://getbootstrap.com/)
+Recycled was built using the [webapp2](http://webapp-improved.appspot.com/) Python framework [documented](https://developers.google.com/appengine/docs/python/gettingstartedpython27/introduction) by Google. The views are created with [Jinja2](http://jinja.pocoo.org/docs/) and styled with [Bootstrap3](http://getbootstrap.com/)
 
 * Download the [Google App Engine SDK for Python](https://developers.google.com/appengine/downloads#Google_App_Engine_SDK_for_Python), which comes with a handy deployment and debug tool, as well as all the necessary libraries.
 
