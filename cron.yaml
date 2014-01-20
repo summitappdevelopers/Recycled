@@ -1,0 +1,5 @@
+cron:
+- description: monthly score purge
+  url: /purgemain
+  schedule: 1st monday of month 00:00
+

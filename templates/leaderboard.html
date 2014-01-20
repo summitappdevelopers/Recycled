@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+	<head>
+		<title>Recycled</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+		<style>
+		body{
+			background-color: #AEDD6E;
+			height:100%;
+			margin:0;
+			padding:0;
+		}
+
+		</style>
+	</head>
+	<body>
+	  <nav class="navbar navbar-default" role="navigation">
+	  <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	      <span class="sr-only">Toggle navigation</span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	      <span class="icon-bar"></span>
+	    </button>
+	    <a class="navbar-brand" href="/">Recycled</a>
+	    <ul class="nav navbar-nav">
+	    </ul>
+	  </div>
+	  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
+	    <ul class="nav navbar-nav navbar-right">
+	    	<li class="active"><a href="/">Leaderboard</a></li>
+	      	<li><a href="/user">My Stats</a></li>
+	    </ul>
+	  </div>
+	</nav>
+
+    <div class="container">
+	    <div class="main-view">
+			{% if topplayers.count() == 0 %}
+				<p class="text-danger">Aww...no recyclers this month :(</p>
+			{% else %}
+			<table class="table table-striped table-condensed table-bordered table-hover">	
+			<tr>
+				<th>Recycler</th>
+				<th>Points</th>
+			</tr>
+			{% for player in topplayers %}
+			<tr>
+				<td class="success">{{player.name}}</td>
+				<td class="success">{{player.points}}</td>
+			</tr>
+			{% endfor %}
+			{% endif %}	
+
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="/src/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="/src/bootstrap.min.js"></script>
+	</body>
+
+</html>
+{% endautoescape %}

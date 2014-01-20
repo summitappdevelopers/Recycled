@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+	<head>
+		<title>Recycled</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+		<style>
+		body{
+			background-color: #AEDD6E;
+			height:100%;
+			margin:0;
+			padding:0;
+			text-align: center;
+		}
+		#point {
+			font-size: 128px;
+		}
+		#pointinfo{
+			margin-left:auto;
+			margin-right:auto;
+		}
+		#pointbox{
+			margin-left:auto;
+			margin-right:auto;
+			width:10em;
+		}
+		#pointmessage{
+			font-size: 24px;
+		}
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-default" role="navigation">
+		  <div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		      <span class="sr-only">Toggle navigation</span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="/">Recycled</a>
+		    <ul class="nav navbar-nav">
+		    </ul>
+		  </div>
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
+		    <ul class="nav navbar-nav navbar-right">
+		    	<li><a href="/">Leaderboard</a></li>
+		      	<li><a href="/user">My Stats</a></li>
+		    </ul>
+		  </div>
+		</nav>
+		<div id="pointbox">
+			<div id="pointinfo">
+				<b><p class="text-success" id="point">+{{amount}}</p></b>
+				<p class="text-success" id="pointmessage">Thank You!</p>
+			</div>
+			</br>
+			<a href="/"><button type="button" class="btn btn-primary btn-block">Leaderboard</button></a></br>
+			<a href="/user"><button type="button" class="btn btn-info btn-block">My Stats</button></a>
+		</div>	
+	<script type="text/javascript" src="/src/jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="/src/bootstrap.min.js"></script>
+	</body>
+
+</html>
+{% endautoescape %}
