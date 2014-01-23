@@ -1,7 +1,7 @@
 from google.appengine.api import users
 from google.appengine.ext import db
 from datetime import timedelta, datetime
-import webapp2,cgi,jinja2,os
+import webapp2,cgi,jinja2,os,random
 
 JINJA_ENVIRONMENT = jinja2.Environment(
 loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -48,7 +48,8 @@ class AddPoint(webapp2.RequestHandler):
 						if(player.updateTime):
 							oldUpdate = player.updateTime
 							timeDifference = datetime.now() - oldUpdate
-							if timeDifference.seconds > 3599:
+							checkTime = random.randint(3600,7200)
+							if timeDifference.seconds > checkTime:
 								IS_VALID = True
 						else:
 							IS_VALID = True
