@@ -103,6 +103,7 @@ class PurgeMain(webapp2.RequestHandler):
 		playerKeys = Player.all(keys_only=True);
 		for key in playerKeys:
 			db.delete(key)
+		self.response.write("Database Purged")
 
 
 def getLevel(points):
