@@ -100,10 +100,10 @@ class UserProfile(webapp2.RequestHandler):
 class PurgeMain(webapp2.RequestHandler):
 
 	def get(self):
-		q = db.GqlQuery("SELECT * FROM Player")
-		results = q.fetch(1000)
-		while results:
-			db.delete(results)
+		playerKeys = Player.all(keys_only=True);
+		for key in playerKeys:
+			db.delete(key)
+
 
 def getLevel(points):
 
