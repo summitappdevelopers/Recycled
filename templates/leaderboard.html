@@ -4,8 +4,7 @@
 	<head>
 		<title>Recycled</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link type="text/css" rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
 		<style>
 		body{
 			background-color: #AEDD6E;
@@ -40,7 +39,8 @@
     <div class="container">
 	    <div class="main-view">
 			{% if topplayers.count() == 0 %}
-				<p class="text-danger">Aww...no recyclers this month :(</p>
+				<center><p class="lead">No Recyclers</p></center>
+				<hr>
 			{% else %}
 			<table class="table table-striped table-condensed table-bordered table-hover">	
 			<tr>
@@ -58,8 +58,8 @@
 			</table>
 		</div>
 	</div>
-	<script type="text/javascript" src="/src/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="/src/bootstrap.min.js"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
 	</body>
 
 </html>
