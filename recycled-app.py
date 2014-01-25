@@ -9,7 +9,7 @@ extensions=['jinja2.ext.autoescape'],
 autoescape=True)
 
 ADD_POINT = 1;
-SPECIAL_KEY = '71417320de826ebc9688de68c8232383'
+SPECIAL_KEY = 'yourhash'
 
 class Player(db.Model):
 	name = db.StringProperty()
