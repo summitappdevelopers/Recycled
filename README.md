@@ -28,7 +28,18 @@ runtime: python27
 api_version: 1
 threadsafe: true
 ```
-* Deploy and make Recycled your own!
+
+* Edit the `recycled-app.py` file with your own hash. Replace the `SPECIAL_KEY = 'yourhash'` with your own authorization string. This is just a minimal measure to check if a user came from a QR code.
+
+* Deploy, fork, and make Recycled your own!
+
+###Creating the QR Code###
+
+Create a QR code linking to your `/point` URL. You can use a site like [QRStuff](http://www.qrstuff.com/) to do this. Format the link like so:
+
+`http://www.url-to-my-site.appspot.com/point?special=yourhash`
+
+`yourhash` should be replaced by whatever hash you assigned `SPECIAL_KEY` in `recylced-app.py`
 
 
 ##MIT License##
