@@ -48,7 +48,7 @@ class AddPoint(webapp2.RequestHandler):
 						if(player.updateTime):
 							oldUpdate = player.updateTime
 							timeDifference = datetime.now() - oldUpdate
-							checkTime = random.randint(3600,7200)
+							checkTime = random.randint(1800,3600)
 							if timeDifference.seconds > checkTime:
 								IS_VALID = True
 						else:
@@ -103,7 +103,6 @@ class PurgeMain(webapp2.RequestHandler):
 		playerKeys = Player.all(keys_only=True);
 		for key in playerKeys:
 			db.delete(key)
-		self.response.write("Database Purged")
 
 
 def getLevel(points):
