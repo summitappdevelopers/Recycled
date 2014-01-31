@@ -100,10 +100,33 @@ class UserProfile(webapp2.RequestHandler):
 class PurgeMain(webapp2.RequestHandler):
 
 	def get(self):
-		playerKeys = Player.all(keys_only=True);
+		emailWinner()
+		playerKeys = Player.all(keys_only=True)
 		for key in playerKeys:
 			db.delete(key)
 
+def emailWinner():
+	
+	maxPoints = None
+	try: 
+		maxPoints = Player.all().order('-points').get().points
+	except AttributeError:
+		print "[D]-No Users..."
+	if maxPoints is not None:
+		winners = db.GqlQuery("SELECT * FROM Player WHERE points=:1",maxPoints)
+		for winner in winners:
+			winnerEmail = winner.name
+			message  = mail.EmailMessage(sender="Recycled Admin <dev.tahoma@mysummitps.org>", subject="You've won Recycled!")
+			message.to = winnerEmail
+			message.body="""
+			Congratulations %s for winning this month's Recycled! \n 
+			
+			---- 
+			This was an automated message sent by Lamar the bot. Do not reply to this email.
+			(Service still in beta)
+			""" % winnerEmail
+			message.send()
+				
 
 def getLevel(points):
 
