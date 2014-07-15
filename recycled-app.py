@@ -9,12 +9,12 @@ extensions=['jinja2.ext.autoescape'],
 autoescape=True)
 
 ADD_POINT = 1;
-SPECIAL_KEY = 'yourhash'
+SPECIAL_KEY = '308ff32611ad0a6718c7b9d69c6b2e69282d282fedb656db02482430ad38052fe7c2d6ffc16649fc08bfa915321bdff440590e5c953faa51c73fa796c65db6e9'
 
 class Player(db.Model):
+	nickname = db.StringProperty()
 	name = db.StringProperty()
 	points = db.IntegerProperty()
-	updateTime = db.DateTimeProperty()
 
 class LeadersPage(webapp2.RequestHandler):
 
@@ -29,9 +29,9 @@ class LeadersPage(webapp2.RequestHandler):
 class AddPoint(webapp2.RequestHandler):
 
 	def get(self):
-		IS_VALID = False
-		if(self.request.get('special')):
-			special = str(self.request.get('special'))
+		IS_VALID = True
+		if(self.request.get('k')):
+			special = str(self.request.get('k'))
 			if(special==SPECIAL_KEY):
 				user = users.get_current_user()
 				if user:
@@ -39,20 +39,13 @@ class AddPoint(webapp2.RequestHandler):
 					print len(allUsers)
 					if len(allUsers) == 0:
 						print "[D]-New User"
-						player = Player(name=user.email(),points=ADD_POINT)
-						IS_VALID = True
+						player = Player(name=user.email(),points=ADD_POINT,nickname=user.nickname())
 					else:
 						print "[D]-Updated User"
 						player = allUsers[0]
+						if(player.nickname is None):
+							player.nickname = user.nickname()
 						player.points += ADD_POINT
-						if(player.updateTime):
-							oldUpdate = player.updateTime
-							timeDifference = datetime.now() - oldUpdate
-							checkTime = random.randint(1800,3600)
-							if timeDifference.seconds > checkTime:
-								IS_VALID = True
-						else:
-							IS_VALID = True
 					if(IS_VALID):
 						player.updateTime = datetime.now()
 						player.put()
